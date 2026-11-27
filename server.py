@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 ROOT=pathlib.Path(__file__).resolve().parent
 CATS=['Technology','Artificial Intelligence','Science & Space','Business','World News','Innovation','Cybersecurity','Future of Work','Gaming & Entertainment']
 MEDIA='{http://search.yahoo.com/mrss/}'; ATOM='{http://www.w3.org/2005/Atom}'; DC='{http://purl.org/dc/elements/1.1/}'; CONTENT='{http://purl.org/rss/1.0/modules/content/}'
-DEFAULT={'brand':'OFFICE / NEWS','subtitle':'THE WORLD AT A GLANCE','timezone':'Europe/Bucharest','story_seconds':10,'transition_ms':450,'refresh_seconds':300,'accent':'#D6FF65','background':'#10151D'}
+DEFAULT={'brand':'OFFICE / NEWS','subtitle':'THE WORLD AT A GLANCE','timezone':'Europe/Bucharest','story_seconds':10,'transition_ms':450,'refresh_seconds':300,'accent':'#FFB80C','background':'#10151D'}
 CACHE=ROOT/'cache.json'; CONFIG=ROOT/'settings.json'; LOCK=threading.Lock(); STATE={'mode':'waiting','items':[],'stale':True,'settings':DEFAULT}; HEALTH={}; UTC=dt.timezone.utc
 class Text(HTMLParser):
     def __init__(self):super().__init__(convert_charrefs=True);self.parts=[];self.skip=0;self.images=[]
