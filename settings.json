@@ -1,0 +1,86 @@
+{
+  "brand": "OFFICE / NEWS",
+  "subtitle": "THE WORLD AT A GLANCE",
+  "timezone": "Europe/Bucharest",
+  "story_seconds": 10,
+  "transition_ms": 450,
+  "refresh_seconds": 300,
+  "accent": "#D6FF65",
+  "background": "#10151D",
+  "max_per_topic": 3,
+  "max_age_days": 14,
+  "feeds": [
+    {
+      "enabled": true,
+      "category": "Technology",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/uk/technology/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "Artificial Intelligence",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "Science & Space",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/science/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "Business",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/business/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "World News",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/world/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "Innovation",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/technology/research/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "Cybersecurity",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/technology/data-computer-security/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "Future of Work",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/money/work-and-careers/rss",
+      "include_description": true,
+      "include_images": true
+    },
+    {
+      "enabled": true,
+      "category": "Gaming & Entertainment",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/games/rss",
+      "include_description": true,
+      "include_images": true
+    }
+  ]
+}
