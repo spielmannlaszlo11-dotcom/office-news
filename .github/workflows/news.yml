@@ -1,0 +1,51 @@
+name: Publish OFFICE NEWS
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '3-58/5 * * * *'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: office-news-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/configure-pages@v5
+      - name: Restore last successful feed snapshot
+        uses: actions/cache/restore@v4
+        with:
+          path: cache.json
+          key: office-news-feed-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            office-news-feed-
+      - name: Test feed parser
+        run: python -m unittest -v
+      - name: Refresh Guardian feeds
+        run: python build.py
+      - name: Save feed snapshot for outages
+        uses: actions/cache/save@v4
+        with:
+          path: cache.json
+          key: office-news-feed-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish site
+        id: deployment
+        uses: actions/deploy-pages@v4
